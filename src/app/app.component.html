@@ -1,0 +1,7 @@
+<h1>My To-do list</h1>
+<ul>
+  @for(item of items; track item) {
+    <li>{{item}}</li>
+  }
+</ul>
+<app-add-task (newTask)="addItem($event)"></app-add-task>
