@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, signal } from '@angular/core'
 import { AddTaskComponent } from './add-ask/add-ask.component'
 
 @Component({
@@ -8,9 +8,9 @@ import { AddTaskComponent } from './add-ask/add-ask.component'
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  items = ['Do the laundry', 'Wash the dishes', 'Read 20 pages']
+  protected readonly items = signal(['Do the laundry', 'Wash the dishes', 'Read 20 pages'])
 
   addItem(item: string): void {
-    this.items.push(item)
+    this.items.update(items => [...items, item])
   }
 }
